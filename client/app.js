@@ -1,16 +1,15 @@
 function onPageLoad() {
     console.log("files-loading");
     var url = "http://127.0.0.1:5000/load_files";
-  
     $.get(url, function(data, status) {
         console.log("loading files");
         if (data) {
-            var movie_title = document.getElementById("movie_title");
-            $("#movie_title").empty();
-            $("#movie_title").append('<option value="" disabled selected>Select a movie</option>'); 
+            var movieTitleSelect = $("#movie_title");
+            movieTitleSelect.empty();
+            movieTitleSelect.append('<option value="" disabled selected>Movies</option>');
             data.forEach((movie_name) => {
-                var opt = new Option(movie_name);
-                $("#movie_title").append(opt);
+                var opt = new Option(movie_name, movie_name);
+                movieTitleSelect.append(opt);
             });
         }
     });
@@ -26,26 +25,42 @@ function recommend() {
         console.log(data.recommend_list);
         console.log(data.movies_poster);
 
-        var recommendationsDiv = document.getElementById("recommendations");
-        recommendationsDiv.innerHTML = ""; // Clear previous recommendations
+        var recommendationsDiv = $("#recommendations");
+        recommendationsDiv.html('');  // Clear previous results
+        recommendationsDiv.html('<div class="suggestions"><h2 class="row_title">Recommendations</h2><div class="row_posters_container"><button class="nav left-nav" onclick="left()">&#171</button><div class="row_posters"></div><button class="nav right-nav" onclick="scrollRight()">&#187;</button></div></div>')
+        var rowPosters = recommendationsDiv.find(".row_posters");
 
         data.recommend_list.forEach((movie, index) => {
-            recommendationsDiv.innerHTML += `
-                <div>
-                    <h2>${movie}</h2>
-                    <img src="${data.movies_poster[index]}" alt="${movie}" width="100">
-                </div>
-            `;
+            var posterDiv = $('<div></div>');
+            posterDiv.html(`
+                <img src="${data.movies_poster[index]}" alt="${movie}">
+                <p>${movie}</p>
+            `);
+            rowPosters.append(posterDiv);
         });
 
         console.log(status);
     });
 }
 
+function left() {
+    console.log("left running")
+    const container = document.querySelector('.row_posters');
+    container.scrollBy({
+        left: -200,
+        behavior: 'smooth'
+    });
+}
 
+function scrollRight() {
+    console.log("right running")
+    const container = document.querySelector('.row_posters');
+    container.scrollBy({
+        left: 200,
+        behavior: 'smooth'
+    });
+}
 
-
-
-
-
-window.onload = onPageLoad;
+$(document).ready(function() {
+    onPageLoad();
+});
