@@ -1,0 +1,120 @@
+body {
+    font-family: 'Brush Script MT', Cursive;
+    background-color: #074173;
+    margin: 0;
+    padding: 20px;
+    background: url('../img.jpg');
+    height: 100%;
+    background-size: cover;
+}
+
+h1 {
+    color: #5DEBD7;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+.movie_name {
+    font-family: 'Brush Script MT', Cursive;
+    display: block;
+    width: 300px;
+    background-color: #1679AB;
+    padding: 10px;
+    font-size: 16px;
+    color: #C5FF95;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+.movie_name:hover{
+    font-family: 'Brush Script MT', Cursive;
+    display: block;
+    width: 300px;
+    background-color: #1679AB;
+    padding: 10px;
+    font-size: 16px;
+    color: #C5FF95;
+    border-radius: 5px;
+    border: 3px solid #5DEBD7;
+    margin: 20px auto;
+}
+
+#recommendButton {
+    font-family: 'Brush Script MT', Cursive;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #5DEBD7;
+    color: #074173;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+#recommendButton:hover {
+    background-color: #074173;
+    color: #C5FF95;
+    border: 3px solid #C5FF95
+}
+
+/* Center the suggestions container and add padding */
+.suggestions {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #cddce800; /* Light background color for better contrast */
+     /* Subtle shadow for depth */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); */
+    max-width: 1000px; /*Limit width for better readability*/
+    align-content: end;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for the header inside suggestions */
+.suggestions h2 {
+    text-transform: capitalize;
+    font-size: 28px; /* Slightly larger font size */
+    color: #5DEBD7; /* Dark color for text */
+    margin-bottom: 20px; /* Space below the header */
+    font-family: 'Lucida Handwriting', Cursive};
+    
+
+/* Flex container for recommendations */
+.recommendations-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center the items horizontally */
+    gap: 20px; /* Space between items */
+}
+
+
+
+/* Styling for the movie posters */
+.recommendation-item img {
+    width: 100px; /* Fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+    margin-bottom: 10px; /* Space below each image */
+}
+
+/* Responsive styling
+@media (max-width: 600px) {
+    .suggestions {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .suggestions h1 {
+        font-size: 24px;
+    }
+
+    .recommendation-item h2 {
+        font-size: 18px;
+    }
+
+    .recommendation-item img {
+        width: 80px;
+    }
+} */
