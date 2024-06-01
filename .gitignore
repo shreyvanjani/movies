@@ -1,2 +1,10 @@
 
 Data/movie_data.csv
+Data/similar.pkl
+Data/movies1.pkl
+/Data/.ipynb_checkpoints
+Data/.ipynb_checkpoints/model-checkpoint.ipynb
+Data/.ipynb_checkpoints/model-checkpoint.ipynb
+server/__pycache__/server.cpython-312.pyc
+server/__pycache__/util.cpython-312.pyc
+Data/.ipynb_checkpoints/model-checkpoint.ipynb
