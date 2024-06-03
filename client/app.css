@@ -1,3 +1,6 @@
+
+
+
 body {
     font-family: 'Brush Script MT', Cursive;
     background-color: #074173;
@@ -5,44 +8,33 @@ body {
     padding: 20px;
     background: url('../img.jpg');
     height: 100%;
-    /* background-size:100%; */
     background-repeat: no-repeat;
 }
 
 h1 {
-    color: #5DEBD7;
+    color: #027bc1;
     text-align: center;
     font-size: 50px;
 }
 
 h2 {
-    color: #5DEBD7;
+    color: #00ffdb;
     text-align: center;
     font-size: 30px;
 }
 
-.movie_name {
+#movie_title {
     font-family: 'Brush Script MT', Cursive;
     display: block;
     width: 300px;
-    background-color: #1679AB;
+    background-color: #032670;
     padding: 10px;
-    font-size: 16px;
-    color: #C5FF95;
-    border-radius: 5px;
+    font-size: 25px;
+    text-align: center;
+    color: #c73699;
+    border-radius: 15px;
     margin: 20px auto;
-}
-.movie_name:hover{
-    font-family: 'Brush Script MT', Cursive;
-    display: block;
-    width: 300px;
-    background-color: #1679AB;
-    padding: 10px;
-    font-size: 16px;
-    color: #C5FF95;
-    border-radius: 5px;
-    border: 3px solid #5DEBD7;
-    margin: 20px auto;
+    border: 0px solid #a42285;
 }
 
 #recommendButton {
@@ -50,69 +42,80 @@ h2 {
     display: block;
     width: 200px;
     padding: 10px;
-    font-size: 16px;
-    background-color: #5DEBD7;
-    color: #074173;
+    font-size: 20px;
+    background-color: #610e35;
+    color: #027bc1;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
     margin: 0 auto;
 }
 
 #recommendButton:hover {
-    background-color: #074173;
-    color: #C5FF95;
-    border: 3px solid #C5FF95;
+    background-color: #57175e;
+    color: #fc9dc2;
+    border: 3px solid #0459c5;
 }
 
-.suggestions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* app.css */
 
+/* Recommendations Section */
+#recommendations {
+    margin-top: 20px;
 }
+
+/* <div class="suggestions">
+  <h2 class="row_title">Recommendations</h2>
+    <div class="row_posters_container">
+    <button class="nav left-nav" onclick="left()">&#171;</button>
+    <div class="row_posters"></div>
+    <button class="nav right-nav" onclick="scrollRight()">&#187;</button>
+  </div>
+</div>'; */
 
 .row_posters_container {
     display: flex;
     align-items: center;
-    width: 80%;
-    padding:5px;
+    max-width: 80%;
+    width: auto;
+    padding: 5px;
     position: static ;
     justify-content: center;
+    margin:auto;
 }
 
 .row_posters {
     display: flex;
-    overflow-x: hidden;
+    overflow-x: auto; /* Changed to allow horizontal scrolling */
     scroll-behavior: smooth;
     align-items: start;
     position: relative;
-    width: 80%;
+    max-width: 80%;
     padding: 5%;
-    gap: 50px ;
+    gap: 50px;
 }
 
 .row_posters div {
     text-transform: capitalize;
-    width: 130px; /* Fixed width */
+    border-radius: 25px;
+    width: 130px;
     height: auto;
-    color: aqua;
-    font-size: 20px;
+    color: cyan;
+    font-size: 25px;
     text-align: center;
     flex: 0 0 auto;
-    word-wrap: break-word; /* Ensure text wraps within the fixed width */
-    overflow-wrap: break-word; /* Modern CSS property for handling word breaks */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .row_posters img {
     width: 150px;
-    height: 250px ;
-    padding: 10px;
+    height: 250px;
+    box-shadow: 0px 0px 25px #0236a2;
+    border-radius: 30px;
 }
 
 .nav {
-
     background-color: #6c6c7109;
     border: none;
     cursor: pointer;
@@ -122,7 +125,7 @@ h2 {
     transform: translateY(-50%);
     z-index: 1;
     font-size: 50px;
-    color: #C5FF95
+    color: #C5FF95;
 }
 
 .left-nav {
@@ -131,4 +134,36 @@ h2 {
 
 .right-nav {
     right: 0%;
+}
+
+.autocomplete-items {
+    /* Styles for the suggestions list */
+    text-align: center;
+    position: relative; /* Positioning relative to the input field */
+    background-color: #032670; /* Background color */
+    border: 1px solid #032670; /* Border */
+    border-radius: 5px; /* Border radius */
+    max-height: 200px; /* Maximum height */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    z-index: 9999; /* Ensure the suggestions list appears on top */
+    width: 400px;
+    margin:auto;
+    color: #c73699;
+    
+}
+
+.autocomplete-items div {
+    /* Styles for each suggestion item */
+    padding: 10px; /* Padding */
+    cursor: pointer; /* Cursor style */
+}
+
+.autocomplete-items div:hover {
+    /* Hover effect for suggestion items */
+    background-color: #63aaff; /* Background color */
+}
+
+.autocomplete-active {
+    /* Active (highlighted) suggestion item */
+    background-color: #007bff; /* Background color */
 }

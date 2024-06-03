@@ -35,9 +35,11 @@ def recommend():
     if movies_list is None or similarity is None:
         return make_response(jsonify({'error': 'Failed to load files on startup'}), 500)
 
-    movie_index = movies_list[movies_list['title'] == selected_movie].index[0]
+    movie_index = movies_list[movies_list['title'] == selected_movie]['count'].values[0]
+    print(movie_index)
     distances = similarity[movie_index]
-    movie_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:10]
+    
+    movie_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:7]
 
     recommend_list = []
     movies_poster = []
@@ -47,27 +49,10 @@ def recommend():
         recommend_list.append(movie_data['title'])
         movies_poster.append("https://image.tmdb.org/t/p/original" + movie_data['poster_path'])
 
+    print(recommend_list)
+    # print(movies_poster)
     return jsonify(recommend_list=recommend_list, movies_poster=movies_poster)
 
-
-# st.title('Movie Recommendation System')
-
-# selected_movie = st.selectbox( 'select blue or Red Pill',movies)
-
-
-
-# if st.button('Recommend Similar Movies' ):
-#     names, posters = recommend(selected_movie)
-#     columns = st.columns(5)
-
-#     for i, (n, p) in enumerate(zip(names, posters)):
-#         with columns[i % 5]:
-#             st.header(n)
-#             st.image(p)
-
-
-# if __name__ == "__main__":
-#     print("starting server")
 
 
 if __name__ == '__main__':

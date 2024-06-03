@@ -7,21 +7,19 @@
 </head>
 <body>
     <h1>Movie Recommendation System</h1>
-    <select class="movie_name" id="movie_title">
-        <option value="" disabled selected>Movies</option>
-    </select>
-    <button id="recommendButton" onclick="recommend()">Recommend Similar Movies</button>
-    <div id="recommendations">
-        <div class="suggestions">
-            <!-- <h2 class="row_title"></h2>
-            <div class="row_posters_container">
-                <button class="nav left-nav" onclick="left()">&#171</button>
-                    <div class="row_posters"></div>
-                <button class="nav right-nav" onclick="scrollRight()">&#187;</button>
-            </div> -->
+
+    <form autocomplete="off" >
+        <div class="movie_name">
+          <input id="movie_title" type="text" name="Movies" placeholder="Movies">
         </div>
-    </div>
-    
+        <button type="button" id="recommendButton" onclick="recommend()">Recommend Similar Movies</button>
+        <div id="recommendations">
+            <div class="suggestions"></div>
+        </div>
+      </form>
     <script src="app.js"></script>
 </body>
 </html>
+
+
+
